@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace practical_task_12
+namespace banking_system_prototype
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -123,10 +123,9 @@ namespace practical_task_12
                 MessageBox.Show("Выберете клиента!");
                 return;
             }
-            bool flag = true;
             users.Clear();
             dataGridNonDeposit.ItemsSource = null;
-            users.Add(new User(user.OpenAnAccount(), flag));
+            users.Add(new User(0, user.OpenAnAccount()));
             if (arrayNonDeposit[count] == 0)
             {
                 arrayNonDeposit[count] = users[0].nonDepositAccount;
@@ -145,6 +144,9 @@ namespace practical_task_12
         /// <param name="e"></param>
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+            textBoxTranslation.Visibility = Visibility.Collapsed;
+            sum.Visibility = Visibility.Collapsed;
+            ok.Visibility = Visibility.Collapsed;
             if (dataGridClients.SelectedIndex == -1)
             {
                 MessageBox.Show("Выберете клиента!");
@@ -234,7 +236,7 @@ namespace practical_task_12
                 MessageBox.Show("Введите сумму");
                 return;
             }
-            if (arrayDeposit[count] == 0)
+            if (arrayNonDeposit[count] == 0)
             {
                 MessageBox.Show("Откройте счет");
                 return;

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace practical_task_12
+namespace banking_system_prototype
 {
-     public class Client<T1,T2,T3>
-     {  
+    public class Client<T1, T2, T3>
+    {
         /// <summary>
         /// Имя
         /// </summary>
@@ -27,7 +27,7 @@ namespace practical_task_12
         /// <summary>
         /// Недепозитный счет
         /// </summary>
-        public ulong nonDepositAccount { get; set;}
+        public ulong nonDepositAccount { get; set; }
         /// <summary>
         /// Средства на депозитном счету
         /// </summary>
@@ -36,7 +36,7 @@ namespace practical_task_12
         /// Средства на недепозитном счету
         /// </summary>
         public int moneyNonDeposit { get; set; }
-        public Client(T2 lastName,T1 name,T3 patronymic)
+        public Client(T2 lastName, T1 name, T3 patronymic)
         {
             this.lastName = lastName;
             this.name = name;
@@ -44,7 +44,7 @@ namespace practical_task_12
         }
         public Client()
         {
-            
+
         }
     }
 }

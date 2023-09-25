@@ -1,24 +1,18 @@
-﻿using System;
+﻿using banking_system_prototype;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace practical_task_12
+namespace banking_system_prototype
 {
-     public class User:Client<string,string,string>
+    public class User:Client<string,string,string>
     {
-        public User()
-        {
-            
-        }
-        public User(ulong deposit)
+        public User(ulong deposit = 0, ulong nonDeposit = 0)
         {
             depositAccount = deposit;
-        }
-        public User(ulong nonDeposit,bool flag)
-        {
             nonDepositAccount = nonDeposit;
         }
         /// <summary>
@@ -27,8 +21,8 @@ namespace practical_task_12
         /// <returns></returns>
         public ulong OpenAnAccount()
         {
-            var r = new Random();
-            var b = new byte[sizeof(ulong)];
+            var r = new Random();                   /*генерируем случайное число типа ulong*/
+            var b = new byte[sizeof(ulong)]; 
             r.NextBytes(b);
             var res = BitConverter.ToUInt64(b, 0);
             return res;
